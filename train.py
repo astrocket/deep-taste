@@ -199,8 +199,8 @@ def create_model():
  
   return model
 
-batch_size = 128
-epochs = 10
+batch_size = 235
+epochs = 1
 model= create_model()
 sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='mean_squared_error', optimizer=sgd, metrics=['accuracy'])
