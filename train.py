@@ -1,4 +1,5 @@
 import logging
+import shutil
 from matplotlib.pyplot import imshow
 import matplotlib.cm as cm
 import matplotlib.pylab as plt
@@ -74,19 +75,19 @@ def gradient_fill(image):
 
 logging.info("Program Started")
 
+# Unzip Fonts
+shutil.unpack_archive("fonts.zip", "fonts")
+
 data=[]
 dataLabelIndexes=[]
 labelToIndex = {}
 indexToLabel = {}
-fontDirectories = os.path.join(os.path.dirname(__file__), "./fonts")
+fontDirectories = os.path.join(os.path.dirname(__file__), "fonts")
 
 for _i, fontDirectory in enumerate(os.listdir(fontDirectories)):
   fontDirectoryName = os.fsdecode(fontDirectory)
   labelToIndex[fontDirectory] = _i
   indexToLabel[_i] = fontDirectory
-
-print(labelToIndex)
-print(indexToLabel)
 
 imagePaths = sorted(list(paths.list_images(fontDirectories)))
 
