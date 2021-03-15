@@ -1,3 +1,4 @@
+import logging
 from matplotlib.pyplot import imshow
 import matplotlib.cm as cm
 import matplotlib.pylab as plt
@@ -71,6 +72,8 @@ def gradient_fill(image):
     laplacian = cv2.resize(laplacian, (105, 105))
     return laplacian
 
+logging.info("Program Started")
+
 data=[]
 dataLabelIndexes=[]
 labelToIndex = {}
@@ -95,6 +98,7 @@ a=itertools.combinations(augument, 4)
 
 for imagePath in imagePaths:
     print(imagePath)
+    logging.info(imagePath)
     label = imagePath.split(os.path.sep)[-3]
     labelIndex = labelToIndex[label]
     pil_img = pil_image(imagePath)
