@@ -17,3 +17,8 @@ python app.py
 ```ruby
 ruby trdg.rb
 ```
+
+> Zip fonts
+```python
+python zip.py
+```
