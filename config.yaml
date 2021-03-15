@@ -6,8 +6,7 @@ workflows:
         name: "training"
         command: experiment.run_single_node
         params:
-          command: ["/bin/sh","-c"]
-          args: ["pip install -r requirements.txt && python train.py"]
+          command: pip install -r requirements.txt
           container: tensorflow/tensorflow:1.13.1-gpu-py3
           experimentEnv:
             EPOCHS_EVAL: 50
