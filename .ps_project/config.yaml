@@ -1,4 +1,5 @@
 version: 2
+
 workflows:
   experiment-workflow:
     steps:
@@ -6,24 +7,17 @@ workflows:
         name: "training"
         command: experiment.run_single_node
         params:
-          command: pip install -r requirements.txt
+          command: pip install -r requirements.txt && python train.py
           container: tensorflow/tensorflow:1.13.1-gpu-py3
           experimentEnv:
-            EPOCHS_EVAL: 50
+            EPOCHS_EVAL: 5
             EVAL_SECS: 10
             MAX_STEPS: 1000
             TRAIN_EPOCHS: 10
-          machineType: p2.xlarge
+          machineType: P4000
           modelPath: /artifacts
           modelType: Tensorflow
-          name: gradientci-sample
-          clusterId: clbdo1h0q
-        checks: #[optional]
-          tensorflow:loss:
-            target: "0.0..0.5"
-            aggregate: "mean"
-          defaults: #[optional]
-            precision: 3
+          name: deep-taste-cli-config-yaml
       triggers:
         branches:
           ignore: irrelevant-branch
