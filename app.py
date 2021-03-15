@@ -9,12 +9,12 @@ from keras.models import load_model
 
 model = load_model('./font_finder.h5')
 
-directory = os.path.join(os.path.dirname(__file__), "test_set")
+directory = os.path.join(os.path.dirname(__file__), "./test_set")
 
 labelToIndex = {}
 indexToLabel = {}
 
-fontDirectories = os.path.join(os.path.dirname(__file__), "../noonnu")
+fontDirectories = os.path.join(os.path.dirname(__file__), "./fonts")
 
 for _i, fontDirectory in enumerate(os.listdir(fontDirectories)):
   fontDirectoryName = os.fsdecode(fontDirectory)
